@@ -1,0 +1,21 @@
+.bg {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 110vh;
+  width: 110vh;
+}
+
+#formulario {
+  border-radius: 25px;
+  background-color: rgba(255,255,255,0.7);
+  border: 0px solid #fff;
+  padding: 50px 60px;
+  margin-top: 5vh;
+  margin-left: 5vh;
+  -webkit-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+  box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+}
+

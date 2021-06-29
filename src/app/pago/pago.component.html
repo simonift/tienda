@@ -1,0 +1,205 @@
+<div class="container-fluid bg">
+  <div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-12" id="formulario">
+      <h2 class="d-flex justify-content-left mb-12">Dirección de Envío</h2>
+      <form class="row g-3" [formGroup]="formularioPago" (ngSubmit)="enviar()">
+        <div class="col-md-6">
+          <label for="nombre" class="col-form-label h2">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="nombre"
+            placeholder="Nombre"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="apellido" class="col-form-label h2">Apellido</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="apellido"
+            placeholder="Apellido"
+          />
+        </div>
+        <div class="col-md-12">
+          <label for="pais" class="col-form-label h2">Pais</label>
+          <select
+            class="form-select"
+            required
+            aria-label="select example"
+            formControlName="pais"
+          >
+            <option value="">Seleccionar</option>
+            <option value="Chile">Chile</option>
+          </select>
+        </div>
+        <div class="col-md-12">
+          <label for="region" class="col-form-label h2">Región</label>
+          <select
+            class="form-select"
+            required
+            aria-label="select example"
+            formControlName="region"
+          >
+            <option value="">Seleccionar</option>
+            <option value="Región de Arica y Parinacota">
+              Región de Arica y Parinacota
+            </option>
+            <option value="Región de Tarapacá">Región de Tarapacá</option>
+            <option value="Región de Antofagasta">Región de Antofagasta</option>
+            <option value="Región de Atacama">Región de Atacama</option>
+            <option value="Región de Coquimbo">Región de Coquimbo</option>
+            <option value="Región de Valparaiso">Región de Valparaiso</option>
+            <option value="Región Metropolitana de Santiago">
+              Región Metropolitana de Santiago
+            </option>
+            <option value="Región Gral. Bernardo O'Higgins">
+              Región Gral. Bernardo O'Higgins
+            </option>
+            <option value="Región del Maule">Región del Maule</option>
+            <option value="Región de Ñuble">Región de Ñuble</option>
+            <option value="Región del Biobío">Región del Biobío</option>
+            <option value="Región de la Araucanía">
+              Región de la Araucanía
+            </option>
+            <option value="Región de los Ríos">Región de los Ríos</option>
+            <option value="Región de los Lagos">Región de los Lagos</option>
+            <option value="Región de Magallanes y Antártica Chilena">
+              Región de Magallanes y Antártica Chilena
+            </option>
+          </select>
+        </div>
+        <div class="col-md-12">
+          <label for="direccion">Dirección</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="direccion"
+            placeholder="Direccion"
+          />
+        </div>
+        <div class="col-md-12">
+          <label for="ciudad">Ciudad</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="ciudad"
+            placeholder="Ciudad"
+          />
+        </div>
+        <div class="col-md-12">
+          <label for="codigoPostal" class="col-form-label h2"
+            >Código Postal</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="codigoPostal"
+            placeholder="Codigo Postal"
+          />
+          <br />
+        </div>
+        <h3 class="d-flex justify-content-left mb-12">Tarjeta de Crédito</h3>
+        <div class="col-md-12">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="titular"
+            placeholder="Titular de la cuenta"
+          />
+        </div>
+        <div class="col-md-12">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="numTarjeta"
+            placeholder="Número de tarjeta"
+          />
+        </div>
+
+        <button class="btn btn-primary btn-block" type="submit">
+          Enviar Datos
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<br />
+<br />
+<div class="container">
+  <div class="card col-md-12 col-sm-12 col-xs-12">
+  <div id="carrito" class="table-responsive">
+    <table class="table" id="lista-compra">
+      <thead>
+        <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Pais</th>
+              <th scope="col">Region</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Ciudad</th>
+              <th scope="col">C.Postal</th>
+            </tr>
+      </thead>
+      <tr>
+        <!--
+        {{datos}}
+        <td>{{ datos.nombre }}</td>
+
+        <td>{{ apellido }}</td>
+        <td>{{ pais }}</td>
+        <td>{{ region }}</td>
+        <td>{{ direccion }}</td>
+        <td>{{ ciudad }}</td>
+        <td>{{ codigoPostal }}</td> -->
+      </tr>
+      <tbody class="col-sm-12">
+        <h2 class="d-flex justify-content-left mb-12">Total Compra</h2>
+        <tr>
+          <th colspan="4" scope="col" class="text-left col-sm-12">
+            SUB TOTAL :
+          </th>
+          <th scope="col">
+            <p id="sinIva"></p>
+          </th>
+          <td>{{ totalDinero | currency: "CLP" }}</td>
+        </tr>
+        <tr>
+          <th colspan="4" scope="col" class="text-left col-sm-12">IVA :</th>
+          <th scope="col">
+            <p id="subTotal"></p>
+          </th>
+          <td>{{ subTotal | currency: "CLP" }}</td>
+        </tr>
+        <tr>
+          <th colspan="4" scope="col" class="text-left col-sm-12">
+            TOTAL A PAGAR:
+          </th>
+          <th scope="col">
+            <p id="totalCompra"></p>
+          </th>
+          <td>
+            {{ totalCompra | currency: "CLP" }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+<br>
+<br>
+  <div class="row justify-content-between">
+    <div class="col-md-4 mb-2">
+      <a class="nav-link btn btn-warning btn-block" routerLink="productos"
+        >Seguir comprando</a
+      >
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <a href="" class="btn btn-success btn-block" (ngSubmit)="enviar()" id="procesarCompra()"
+        >Realizar compra</a
+      >
+    </div>
+  </div>
+
+
+</div>
